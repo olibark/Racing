@@ -8,5 +8,6 @@ def Init():
     clock = pygame.time.Clock()
     screen = pygame.display.set_mode((c.WIDTH, c.HEIGHT))
     player = pl.Player()
-    c.playerImage = pygame.image.load(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'img', 'icons', 'car.png')).convert_alpha()
+    c.playerImage = pygame.image.load(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'img', 'cars', 'red_car.png')).convert_alpha()
+    
     return screen, clock, player
