@@ -1,8 +1,8 @@
-import pygame, draw
+import pygame, draw, os
 import constants as c
 import background as bg
 
-def main_loop(player, screen, backgroundImg):
+def main_loop(player, screen):
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             c.running = False
@@ -12,9 +12,12 @@ def main_loop(player, screen, backgroundImg):
     player.move(keys)
     
     if keys[pygame.K_d] or keys[pygame.K_a] or keys[pygame.K_w] or keys[pygame.K_s]:
-        print(f"Player X: {player.x}, Player Y: {player.y}, Speed: {player.speed}")
-    
+        #os.system(c.clear)
+        print(f"Player X: {player.rect.x}, Player Y: {player.rect.x}, Speed: {player.speed}")
+    if keys[pygame.K_ESCAPE]:
+        c.running = False
+        
+    player.checkBounds()
     draw.all(screen, player)
-    #player.checkBounds()
     pygame.display.flip()
     

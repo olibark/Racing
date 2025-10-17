@@ -10,7 +10,7 @@ def Init():
     
     P_img_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'img', 'cars', 'red_car.png')
     P_img = pygame.image.load(P_img_path).convert_alpha()
-    B_img_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'img', 'backgrounds', 'moantains.png')
+    B_img_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'img', 'backgrounds', 'roadMoantains.png')
     backgroundImg = pygame.image.load(B_img_path).convert()
     c.backgroundImg = pygame.transform.smoothscale(backgroundImg, (c.WIDTH, c.HEIGHT))
     

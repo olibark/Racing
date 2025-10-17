@@ -5,4 +5,4 @@ import init, loop
 
 while c.running:
     clock.tick(c.FPS)
-    loop.main_loop(player, screen, backgroundImg)
+    loop.main_loop(player, screen)
