@@ -42,13 +42,12 @@ class Player(pygame.sprite.Sprite):
         self.rect.y -= self.speed
 
     def checkBounds(self):
-        # Define your play area
-        top_limit = c.ROAD_HEIGHT
-        bottom_limit = c.HEIGHT - self.rect.height
+        # clamp the player within the visible road area
+        top_limit = c.HORIZON_Y
+        bottom_limit = c.HEIGHT
         left_limit = 0
-        right_limit = c.WIDTH - self.rect.width
+        right_limit = c.WIDTH
 
-        # Clamp position
         if self.rect.left < left_limit:
             self.rect.left = left_limit
         elif self.rect.right > right_limit:

@@ -17,13 +17,13 @@ BACKGROUND = (0, 0, 0)
 
 HEIGHT = 1080
 WIDTH = 1920
-ROAD_HEIGHT = -300
+HORIZON_Y = int(HEIGHT * 0.8)
 
 FPS = 60
 
 PLAYER_SCALE = 0.5
 
-playerCoords = [WIDTH // 2, -HEIGHT]
+playerCoords = [0, 0]
 
 playerImage = None
 backgroundImg = None 
