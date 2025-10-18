@@ -7,7 +7,7 @@ carTypes = {
             "green": {"turnRate": 6, "acceleration": 1, "maxSpeed": 8}
         }
 
-friction = 0.26
+friction = 0.2
 
 running = True
 
@@ -17,7 +17,8 @@ BACKGROUND = (0, 0, 0)
 
 HEIGHT = 1080
 WIDTH = 1920
-HORIZON_Y = int(HEIGHT * 0.8)
+HORIZON_Y = int(HEIGHT * 0.7)
+ROAD_COLOR = (50, 50, 50)
 
 FPS = 60
 

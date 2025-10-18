@@ -13,11 +13,10 @@ def main_loop(player, screen):
     
     if keys[pygame.K_d] or keys[pygame.K_a] or keys[pygame.K_w] or keys[pygame.K_s]:
         #os.system(c.clear)
-        print(f"Player X: {player.rect.x}, Player Y: {player.rect.x}, Speed: {player.speed}")
+        print(f"Player X: {player.rect.x}, Player Y: {player.rect.y}, Speed: {player.speed}")
     if keys[pygame.K_ESCAPE]:
         c.running = False
-        
-    player.checkBounds()
+
     draw.all(screen, player)
     pygame.display.flip()
     

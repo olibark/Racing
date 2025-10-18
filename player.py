@@ -40,7 +40,9 @@ class Player(pygame.sprite.Sprite):
                 self.speed = min(self.speed + c.friction, 0)
 
         self.rect.y -= self.speed
-
+        self.checkBounds()
+        self.setScale()
+        
     def checkBounds(self):
         # clamp the player within the visible road area
         top_limit = c.HORIZON_Y
@@ -58,5 +60,20 @@ class Player(pygame.sprite.Sprite):
         elif self.rect.bottom > bottom_limit:
             self.rect.bottom = bottom_limit
 
+    def setScale(self):
+        base = c.playerImage
+        
+        diff = self.rect.y - c.HORIZON_Y
+        ratio = diff / (c.HEIGHT - c.HORIZON_Y)
+        ratio = max(0, min(1, ratio))
+        
+        scale = c.PLAYER_SCALE + (1 - c.PLAYER_SCALE) * (ratio * 4)
+        
+        new_width = int(base.get_width() * scale)
+        new_height = int(base.get_height() * scale)
+        
+        self.image = pygame.transform.smoothscale(base, (new_width, new_height))
+        self.rect = self.image.get_rect(center=self.rect.center)
+        
     def draw(self, screen):
         screen.blit(self.image, self.rect.topleft)
