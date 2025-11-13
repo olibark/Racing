@@ -19,6 +19,7 @@ class Player(pygame.sprite.Sprite):
         assert c.playerImage is not None, "load player image before creating Player instance"
         
         self.image: pygame.Surface = c.playerImage
+        
         self.rect = self.image.get_rect()
         self.rect.topleft = (x, y)
         self.stats = self.Stats(car_type)
@@ -29,17 +30,23 @@ class Player(pygame.sprite.Sprite):
     def move(self, keys):
         if keys[pygame.K_d]:
             self.moveX = min(self.moveX + self.stats.accel_x, self.stats.max_speed_x)
+        
         elif keys[pygame.K_a]:
             self.moveX = max(self.moveX - self.stats.accel_x, -self.stats.max_speed_x)
+        
         else:
             if self.moveX > 0:
-                self.moveX = max(self.moveX -c.FRICTION, 0)
+                self.moveX = max(self.moveX - c.FRICTION, 0)
             elif self.moveX < 0:
                 self.moveX = min(self.moveX + c.FRICTION, 0)
                       
         if keys[pygame.K_w] and self.moveY < self.stats.move_rate_y:
             self.moveY = min(self.moveY + self.stats.acceleration, self.stats.move_rate_y)
+        
         elif keys[pygame.K_s]:
+            
+            self.image = c.playerBreakingImage
+            
             if self.moveY > 0:
                 self.moveY = max(self.moveY - self.stats.braking, 0)
             else: 
@@ -50,10 +57,8 @@ class Player(pygame.sprite.Sprite):
                 self.moveY = max(self.moveY - c.FRICTION, 0)
             elif self.moveY < 0:
                 self.moveY = min(self.moveY + c.FRICTION, 0)
-        
-        self.rect.x += int(self.moveX)
-        self.rect.y -= int(self.moveY)
-        
+
+        self.setCoords()        
         self.checkBounds()
         self.setScale()
         
@@ -90,6 +95,8 @@ class Player(pygame.sprite.Sprite):
         
     def draw(self, screen):
         screen.blit(self.image, self.rect)
-        
-    #def setSpeed(self):
+    
+    def setCoords(self):
+        self.rect.x += int(self.moveX)
+        self.rect.y -= int(self.moveY)
         

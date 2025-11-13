@@ -3,13 +3,11 @@ import constants as c
 import player as pl 
 
 
-def imageInit(target, scaled, player, scale):
+def imageInit(target, scaled, scale):
     target_image_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'img', 'cars', str(target))
     temp_target_img = pygame.image.load(target_image_path).convert_alpha()
 
     if scaled:
-        if player:
-            scale = c.PLAYER_SCALE
         height = int(temp_target_img.get_width() * scale)
         width = int(temp_target_img.get_width() * scale)
         
@@ -26,17 +24,17 @@ def Init():
     clock = pygame.time.Clock()
     screen = pygame.display.set_mode((c.WIDTH, c.HEIGHT))
     
-    player_img_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'img', 'cars', 'red_car.png')
-    temp_playerImg = pygame.image.load(player_img_path).convert_alpha()
+    #player_img_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'img', 'cars', 'red_car.png')
+    #temp_playerImg = pygame.image.load(player_img_path).convert_alpha()
     
-    height = int(temp_playerImg.get_width() * c.PLAYER_SCALE)
-    width = int(temp_playerImg.get_height() * c.PLAYER_SCALE)
+    #height = int(temp_playerImg.get_width() * c.PLAYER_SCALE)
+    #width = int(temp_playerImg.get_height() * c.PLAYER_SCALE)
     
-    c.playerImage = pygame.transform.smoothscale(temp_playerImg, (height, width))
-    """
-    c.playerImage = imageInit("red_car.png", True, True, None)
-    c.playerBreakingImage = imageInit("red_car.breaking.png", True, True, None)
-    """
+    #c.playerImage = pygame.transform.smoothscale(temp_playerImg, (height, width))
+
+    c.playerImage = imageInit("red_car.png", True, c.PLAYER_SCALE)
+    c.playerBreakingImage = imageInit("red_car.breaking.png", True, c.PLAYER_SCALE)
+    
     rect = c.playerImage.get_rect()
     c.player_start = [(c.WIDTH // 2) - (rect.width // 2), c.HEIGHT- rect.height]
     
@@ -47,4 +45,4 @@ def Init():
     
     backgroundImg = pygame.transform.smoothscale(temp_backgroundImg, (c.WIDTH, c.HEIGHT))
     
-    return screen, clock, player, backgroundImg    
+    return screen, clock, player, backgroundImg
