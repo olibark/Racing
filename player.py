@@ -10,7 +10,7 @@ class Player(pygame.sprite.Sprite):
             self.acceleration = car["acceleration"]
             self.braking = car["braking"]
             self.max_reverse = car["max_reverse"]
-            self.accel_x = car["acceleration"] / 2
+            self.accel_x = car["acceleration"]
             self.max_speed_x = self.move_rate_x
             
     def __init__(self, x, y, car_type):
@@ -89,4 +89,7 @@ class Player(pygame.sprite.Sprite):
         self.rect = self.image.get_rect(center=self.rect.center)
         
     def draw(self, screen):
-        screen.blit(self.image, self.rect.topleft)
+        screen.blit(self.image, self.rect)
+        
+    #def setSpeed(self):
+        

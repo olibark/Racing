@@ -15,6 +15,9 @@ def Init():
     width = int(temp_playerImg.get_height() * c.PLAYER_SCALE)
     
     c.playerImage = pygame.transform.smoothscale(temp_playerImg, (height, width))
+
+    rect = c.playerImage.get_rect()
+    c.player_start = [(c.WIDTH // 2) - (rect.width // 2), c.HEIGHT- rect.height]
     
     player = pl.Player(c.player_start[0], c.player_start[1], "red")
     

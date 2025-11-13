@@ -11,6 +11,4 @@ def drawBG(screen):
     pygame.draw.rect(screen, c.ROAD_COLOUR, (0, c.HORIZON_Y, c.WIDTH, c.HEIGHT - c.HORIZON_Y))
     
 def centreLine(screen):
-    centre = c.WIDTH // 2
-    
-    pygame.draw.line(screen, c.CENTERLINE_COLOUR, (centre, c.HORIZON_Y), (centre, c.HEIGHT), 8)
+    pygame.draw.line(screen, c.CENTRELINE_COLOUR, (c.CENTRE, c.HORIZON_Y), (c.CENTRE, c.HEIGHT), 8)
