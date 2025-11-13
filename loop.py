@@ -12,7 +12,7 @@ def main_loop(player, screen):
     
     if keys[pygame.K_w] or keys[pygame.K_a] or keys[pygame.K_s] or keys[pygame.K_d]:
         #player.move(keys)
-        print(f"X: {player.rect.x}, Y: {player.rect.y}, Spd: {player.moveY}")
+        print(f"X: {player.rect.x}   Y: {player.rect.y}   moveX: {player.moveX}   moveY: {player.moveY}")
     if keys[pygame.K_ESCAPE]:
         c.running = False
         
