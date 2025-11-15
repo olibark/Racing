@@ -1,3 +1,4 @@
+"""
 from init import Init
 from loop import main_loop 
 from constants import running, FPS
@@ -7,3 +8,5 @@ from constants import running, FPS
 while running:
     clock.tick(FPS)
     main_loop(player, screen)
+
+"""

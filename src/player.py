@@ -15,7 +15,6 @@ class Player(pygame.sprite.Sprite):
             
     def __init__(self, x, y, car_type):
         super().__init__()
-        
         assert c.playerImage is not None, "load player image before creating Player instance"
         
         self.image: pygame.Surface = c.playerImage
@@ -74,7 +73,7 @@ class Player(pygame.sprite.Sprite):
         self.setScale()
         
     def checkBounds(self):
-        top_lim = c.HORIZON_Y
+        top_lim = c.HORIZON_Y - self.image.get_height()
         bottom_lim = c.HEIGHT
         left_lim = 0
         right_lim = c.WIDTH
@@ -92,8 +91,8 @@ class Player(pygame.sprite.Sprite):
     def setScale(self):
         base = c.playerBaseImage or c.playerImage
         
-        diff = self.rect.y - c.HORIZON_Y
-        ratio = diff / (c.HEIGHT - c.HORIZON_Y)
+        diff = self.rect.y - (c.HORIZON_Y - self.image.get_height())
+        ratio = diff / (c.HEIGHT - (c.HORIZON_Y - self.image.get_height()))
         ratio = max(0, min(1, ratio))
         
         scale = c.PLAYER_SCALE + (1 - c.PLAYER_SCALE) * (ratio * 4)
