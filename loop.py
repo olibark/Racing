@@ -16,8 +16,6 @@ def main_loop(player, screen):
         rectY = round(player.rect.y, 2)
         moveX = round(player.moveX, 2)
         moveY = round(player.moveY, 2)
-        
-        #print(f"X: {player.rect.x}   Y: {player.rect.y}   moveX: {player.moveX}   moveY: {player.moveY}")
            
         print(f"X: {rectX}   Y: {rectY}   moveX: {moveX}   moveY: {moveY}")
         

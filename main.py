@@ -1,7 +1,7 @@
 import constants as c
 import init, loop
 
-(screen, clock, player, backgroundImg) = init.Init()
+(screen, clock, player) = init.Init()
 
 while c.running:
     clock.tick(c.FPS)
