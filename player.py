@@ -4,7 +4,7 @@ import constants as c
 class Player(pygame.sprite.Sprite):
     class Stats:
         def __init__(self, car_type):
-            car = stats.car_stats.get(car_type, c.car_stats["red"])
+            car = stats.car_stats.get(car_type, stats.car_stats["red"])
             self.move_rate_x = car["move_rate_x"]
             self.move_rate_y = car["move_rate_y"]
             self.acceleration = car["acceleration"]
