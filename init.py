@@ -1,24 +1,35 @@
-import pygame, os 
+import os
+from functools import lru_cache
+
+import pygame
+
 import constants as c
-import player as pl 
+import player as pl
+
+
+@lru_cache(maxsize=None)
+def _load_image(target: str) -> pygame.Surface:
+    target_image_path = os.path.join(
+        os.path.dirname(os.path.abspath(__file__)), "img", "cars", str(target)
+    )
+    return pygame.image.load(target_image_path).convert_alpha()
 
 
 def imageInit(target, scaled, player, scale):
-    target_image_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'img', 'cars', str(target))
-    temp_target_img = pygame.image.load(target_image_path).convert_alpha()
+    """Load an image, optionally scaling it while keeping the aspect ratio."""
 
-    if scaled:
-        if player:
-            scale = c.PLAYER_SCALE
-        height = int(temp_target_img.get_width() * scale)
-        width = int(temp_target_img.get_width() * scale)
-        
-        transformedImg = pygame.transform.smoothscale(temp_target_img, (height, width))
-        
-    else:
-        transformedImg = temp_target_img
-        
-    return transformedImg
+    base_image = _load_image(target)
+
+    if not scaled:
+        return base_image.copy()
+
+    if scale is None:
+        scale = c.PLAYER_SCALE if player else 1
+
+    width, height = base_image.get_size()
+    new_size = (int(width * scale), int(height * scale))
+
+    return pygame.transform.smoothscale(base_image, new_size)
 
 def Init():
     os.system(c.CLEAR)
@@ -26,17 +37,9 @@ def Init():
     clock = pygame.time.Clock()
     screen = pygame.display.set_mode((c.WIDTH, c.HEIGHT))
     
-    player_img_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'img', 'cars', 'red_car.png')
-    temp_playerImg = pygame.image.load(player_img_path).convert_alpha()
-    
-    height = int(temp_playerImg.get_width() * c.PLAYER_SCALE)
-    width = int(temp_playerImg.get_height() * c.PLAYER_SCALE)
-    
-    c.playerImage = pygame.transform.smoothscale(temp_playerImg, (height, width))
-    """
+    c.playerBaseImage = imageInit("red_car.png", False, True, None)
     c.playerImage = imageInit("red_car.png", True, True, None)
     c.playerBreakingImage = imageInit("red_car.breaking.png", True, True, None)
-    """
     rect = c.playerImage.get_rect()
     c.player_start = [(c.WIDTH // 2) - (rect.width // 2), c.HEIGHT- rect.height]
     
