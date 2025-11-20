@@ -1,6 +1,4 @@
-import os, pygame
-import constants as c
-import player as pl
+import os, pygame, constants as c, player as pl
 
 def playerInit():
     rect = c.playerImage.get_rect()
