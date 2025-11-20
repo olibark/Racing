@@ -54,9 +54,6 @@ class Player(pygame.sprite.Sprite):
             self.moveY = min(self.moveY + self.stats.acceleration, self.stats.move_rate_y)
 
         elif keys[pygame.K_s]:
-
-            self.image = c.playerBreakingImage
-            
             if self.moveY > 0:
                 self.moveY = max(self.moveY - self.stats.braking, 0)
             else: 
@@ -73,7 +70,7 @@ class Player(pygame.sprite.Sprite):
         self.setScale()
         
     def checkBounds(self):
-        top_lim = c.HORIZON_Y - self.image.get_height()
+        top_lim = (c.HORIZON_Y - self.image.get_height()) + self.image.get_height() // 4
         bottom_lim = c.HEIGHT
         left_lim = 0
         right_lim = c.WIDTH
