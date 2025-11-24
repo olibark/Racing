@@ -21,7 +21,7 @@ FPS = 60
 
 PLAYER_SCALE = 0.5
 
-player_start = None #[HEIGHT * 0.9, WIDTH // 2]
+player_start = None
 
 playerBaseImage = None
 playerImage = None

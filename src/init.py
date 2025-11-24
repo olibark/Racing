@@ -37,7 +37,7 @@ def pygameInit():
 
 def imageAlloc():
     c.playerBaseImage = imageTransform("red_car.png", False, True, None, "cars")
-    c.playerImage = imageTransform("red_car.png", True, True, None, "cars")
+    c.playerImage =     imageTransform("red_car.png", True, True, None, "cars")
     c.backgroundImage = imageTransform("background.png", False, False, None, "backgrounds")
     
 def Init():

@@ -1,5 +1,4 @@
-import pygame
-import constants as c
+import pygame, constants as c
 
 def all(screen, player):
     drawBG(screen)

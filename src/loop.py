@@ -1,5 +1,4 @@
-import pygame, draw, os
-import constants as c 
+import pygame, draw, constants as c
 
 def main_loop(player, screen):
     for event in pygame.event.get():

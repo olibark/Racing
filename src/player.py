@@ -1,5 +1,4 @@
-import pygame, stats
-import constants as c 
+import pygame, stats, constants as c
 
 class Player(pygame.sprite.Sprite):
     class Stats:
@@ -15,7 +14,7 @@ class Player(pygame.sprite.Sprite):
             
     def __init__(self, x, y, car_type):
         super().__init__()
-        assert c.playerImage is not None, "load player image before creating Player instance"
+        assert c.playerImage is not None
         
         self.image: pygame.Surface = c.playerImage
         
