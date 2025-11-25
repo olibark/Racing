@@ -1,25 +1,30 @@
 import os, tkinter
 
-FRICTION = 0.2
+FRICTION = 0.15
 
 running = True
 
 CLEAR = 'cls' if os.name == 'nt' else 'clear'
 
-BACKGROUND = (0, 0, 0)
+BACKGROUND = (29, 69, 133)
 
 root = tkinter.Tk()
 WIDTH = root.winfo_screenwidth()
 HEIGHT = root.winfo_screenheight()
 CENTRE = WIDTH / 2
 
+#HEIGHT = 1000
+#WIDTH = 1900
+
 HORIZON_Y = int(HEIGHT * 0.5)
+
+OUTER_ROAD_COLOUR = (30, 80, 30)
 ROAD_COLOUR = (50, 50, 50)
 CENTRELINE_COLOUR = (200, 200, 200)
 
 FPS = 60
 
-PLAYER_SCALE = 0.5
+PLAYER_SCALE = 0.55
 
 player_start = None
 

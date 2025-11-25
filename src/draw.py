@@ -1,13 +1,30 @@
 import pygame, constants as c
 
 def all(screen, player):
-    drawBG(screen)
-    centreLine(screen)
+    background(screen)
+    road(screen)
     player.draw(screen)
     
-def drawBG(screen):
+def background(screen):
     screen.fill(c.BACKGROUND)
-    pygame.draw.rect(screen, c.ROAD_COLOUR, (0, c.HORIZON_Y, c.WIDTH, c.HEIGHT - c.HORIZON_Y))
     
 def centreLine(screen):
-    pygame.draw.line(screen, c.CENTRELINE_COLOUR, (c.CENTRE, c.HORIZON_Y), (c.CENTRE, c.HEIGHT), 8)
+    points = [(c.WIDTH * 49.95/100, c.HORIZON_Y),
+              (c.WIDTH * 50.05/100, c.HORIZON_Y),
+              (c.WIDTH * 51/100, c.HEIGHT),
+              (c.WIDTH * 49/100, c.HEIGHT)
+              ]
+    
+    pygame.draw.polygon(screen, c.CENTRELINE_COLOUR, points)
+    
+def road(screen):
+    points = [(c.WIDTH * 40/100, c.HORIZON_Y), #top-left
+              (c.WIDTH * 60/100, c.HORIZON_Y), #top-right
+              (c.WIDTH * 80/100, c.HEIGHT), #bottom-right
+              (c.WIDTH * 20/100, c.HEIGHT) #bottom-left
+              ]
+    
+    pygame.draw.rect(screen, c.OUTER_ROAD_COLOUR, (0, c.HORIZON_Y, c.WIDTH, c.HEIGHT - c.HORIZON_Y))
+    pygame.draw.polygon(screen, c.ROAD_COLOUR, points)
+    centreLine(screen)
+    

@@ -1,7 +1,7 @@
-import init, loop, constants
+import init, loop, constants as c
 
 (screen, clock, player) = init.Init()
 
-while constants.running:
-    clock.tick(constants.FPS)
+while c.running:
+    clock.tick(c.FPS)
     loop.main_loop(player, screen)

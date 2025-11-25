@@ -1,6 +1,6 @@
 import os, pygame, constants as c, player as pl
 
-def playerInit():
+def playerInit() -> object:
     rect = c.playerImage.get_rect()
     c.player_start = [(c.WIDTH // 2) - (rect.width // 2), c.HEIGHT- rect.height]
     player = pl.Player(c.player_start[0], c.player_start[1], "red")

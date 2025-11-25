@@ -11,6 +11,8 @@ class Player(pygame.sprite.Sprite):
             self.max_reverse = car["max_reverse"]
             self.accel_x = car["acceleration"]
             self.max_speed_x = self.move_rate_x
+            self.diff = 0
+            self.speed = 0
             
     def __init__(self, x, y, car_type):
         super().__init__()
@@ -88,6 +90,8 @@ class Player(pygame.sprite.Sprite):
         base = c.playerBaseImage or c.playerImage
         
         diff = self.rect.y - (c.HORIZON_Y - self.image.get_height())
+        self.diff = diff
+        
         ratio = diff / (c.HEIGHT - (c.HORIZON_Y - self.image.get_height()))
         ratio = max(0, min(1, ratio))
         
