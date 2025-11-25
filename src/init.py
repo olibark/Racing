@@ -1,4 +1,4 @@
-import os, pygame, constants as c, player as pl
+import os, pygame, sys, constants as c, player as pl
 
 def playerInit() -> object:
     rect = c.playerImage.get_rect()
@@ -39,11 +39,17 @@ def imageAlloc():
     c.playerBaseImage = imageTransform("red_car.png", False, True, None, "cars")
     c.playerImage =     imageTransform("red_car.png", True, True, None, "cars")
     c.backgroundImage = imageTransform("background.png", False, False, None, "backgrounds")
-    
+    c.cursorImage =     imageTransform("cursor1.png", False, False, None, "cursors")
+
 def Init():
     os.system(c.CLEAR)
     screen, clock = pygameInit()
     imageAlloc()
     player = playerInit()
+    mouseInit()
     
     return screen, clock, player
+
+def mouseInit():
+    pygame.mouse.set_visible(False)
+    c.cursor_rect = c.cursorImage.get_rect()

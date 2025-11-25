@@ -2,6 +2,9 @@ import pygame, draw, constants as c
 
 def main_loop(player, screen):
     keys = pygame.key.get_pressed()
+    mouse_pos = pygame.mouse.get_pos()
+    
+    c.cursor_rect.center = mouse_pos
     
     player.move(keys)
     

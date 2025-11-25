@@ -13,8 +13,8 @@ WIDTH = root.winfo_screenwidth()
 HEIGHT = root.winfo_screenheight()
 CENTRE = WIDTH / 2
 
-#HEIGHT = 1000
-#WIDTH = 1900
+HEIGHT = 1000
+WIDTH = 1000
 
 HORIZON_Y = int(HEIGHT * 0.5)
 
@@ -32,3 +32,6 @@ playerBaseImage = None
 playerImage = None
 playerBreakingImage = None
 backgroundImage = None
+cursorImage = None
+
+cursor_rect = None
