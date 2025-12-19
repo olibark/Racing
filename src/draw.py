@@ -25,9 +25,15 @@ def centreLine(screen):
     
 def cursor(screen):
     screen.blit(c.cursorImage, c.cursor_rect)
+
+def sun(screen):
+    pygame.draw.circle(screen, c.SUN_COLOUR_BACK, (c.WIDTH / 2, c.HORIZON_Y), c.WIDTH / 4)
+    pygame.draw.circle(screen, c.SUN_COLOUR_MIDDLE, (c.WIDTH /2, c.HORIZON_Y), c.WIDTH / 4.6)
+    pygame.draw.circle(screen, c.SUN_COLOUR_FRONT, (c.WIDTH /2, c.HORIZON_Y), c.WIDTH / 5)
     
 def all(screen, player):
     background(screen)
+    sun(screen)
     road(screen)
     player.draw(screen)
     cursor(screen)
