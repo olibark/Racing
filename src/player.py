@@ -5,12 +5,15 @@ class Player(pygame.sprite.Sprite):
         def __init__(self, car_type):
             car = stats.car_stats.get(car_type, stats.car_stats["red"])
             self.move_rate_x = car["move_rate_x"]
-            self.move_rate_y = car["move_rate_y"]
+            
+            self.move_rate_y =  car["move_rate_y"]
             self.acceleration = car["acceleration"]
-            self.braking = car["braking"]
-            self.max_reverse = car["max_reverse"]
-            self.accel_x = car["acceleration"]
+            self.braking =      car["braking"]
+            self.max_reverse =  car["max_reverse"]
+            self.accel_x =      car["acceleration"]
+            
             self.max_speed_x = self.move_rate_x
+            
             self.diff = 0
             self.speed = 0
             
@@ -100,7 +103,7 @@ class Player(pygame.sprite.Sprite):
         new_width = int(base.get_width() * scale)
         new_height = int(base.get_height() * scale)
         
-        self.image= pygame.transform.smoothscale(base, (new_width, new_height))
+        self.image = pygame.transform.smoothscale(base, (new_width, new_height))
         self.rect = self.image.get_rect(center=self.rect.center)
         
     def draw(self, screen):
@@ -109,4 +112,3 @@ class Player(pygame.sprite.Sprite):
     def setCoords(self):
         self.rect.x += int(self.moveX)
         self.rect.y -= int(self.moveY)
-        

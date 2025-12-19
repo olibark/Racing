@@ -1,0 +1,1 @@
+    loop.main_loop(player, screen)

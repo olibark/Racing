@@ -17,8 +17,8 @@ def road(screen):
 def centreLine(screen):
     points = [(c.WIDTH * 49.95/100, c.HORIZON_Y),
               (c.WIDTH * 50.05/100, c.HORIZON_Y),
-              (c.WIDTH * 50.55/100, c.HEIGHT),
-              (c.WIDTH * 49.45/100, c.HEIGHT)
+              (c.WIDTH * 51.00/100, c.HEIGHT),
+              (c.WIDTH * 49.00/100, c.HEIGHT)
               ]
     
     pygame.draw.polygon(screen, c.CENTRELINE_COLOUR, points)

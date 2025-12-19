@@ -36,10 +36,10 @@ def pygameInit():
     return screen, clock
 
 def imageAlloc():
-    c.playerBaseImage = imageTransform("red_car.png", False, True, None, "cars")
-    c.playerImage =     imageTransform("red_car.png", True, True, None, "cars")
-    c.backgroundImage = imageTransform("background.png", False, False, None, "backgrounds")
-    c.cursorImage =     imageTransform("cursor1.png", False, False, None, "cursors")
+    c.playerBaseImage = imageTransform(target="red_car.png",    scaled=False, player=True,  scale=None, folder="cars")
+    c.playerImage =     imageTransform(target="red_car.png",    scaled=True,  player=True,  scale=None, folder="cars")
+    c.backgroundImage = imageTransform(target="background.png", scaled=False, player=False, scale=None, folder="backgrounds")
+    c.cursorImage =     imageTransform(target="cursor.png",     scaled=False, player=False, scale=None, folder="cursors")
 
 def Init():
     os.system(c.CLEAR)
